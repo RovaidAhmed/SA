@@ -102,6 +102,7 @@
                             </asp:DropDownList>
                             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:sareAamConnectionString2 %>" SelectCommand="SELECT DISTINCT * FROM [pages]"></asp:SqlDataSource>
                         </div>
+                        <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" />
                         <div class="form-group">
                             <asp:TextBox ID="Txtadminid" runat="server" CssClass="form-control" placeholder="Admin id" Enabled="false"></asp:TextBox>
                         </div>

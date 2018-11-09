@@ -14,6 +14,7 @@ public partial class Admin_add : System.Web.UI.Page
     DataClassesDataContext dv = new DataClassesDataContext();
     protected void Page_Load(object sender, EventArgs e)
     {
+        
         //**session
         try
         {
@@ -108,5 +109,13 @@ public partial class Admin_add : System.Web.UI.Page
     protected void DropDownpage_SelectedIndexChanged(object sender, EventArgs e)
     {
         get_pid();
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        if (DropDownpage.SelectedValue == "2")
+        {
+            Response.Redirect("../politics.aspx");
+        }
     }
 }

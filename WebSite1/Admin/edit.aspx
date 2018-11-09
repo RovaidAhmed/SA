@@ -62,6 +62,7 @@
                         <li><a href="view.aspx"><i class="glyphicon glyphicon-circle"></i>View </a></li>
                         <li><a href="edit.aspx"><i class="glyphicon glyphicon-circle"></i>Update </a></li>
                         <li><a href=""><i class="glyphicon glyphicon-circle"></i>
+                            <asp:Button ID="Btnlogout" runat="server" Text="Logout"  CssClass="btn btn-danger" OnClick="Btnlogout_Click"/>
 
                         </a></li>
                     </ul>
@@ -95,9 +96,9 @@
                             <label for="exampleInputPassword1">Write post_id</label>
                             <asp:TextBox ID="Txtpostid" runat="server" CssClass="form-control" placeholder="id"></asp:TextBox>
                             <br />
-                            <asp:Button ID="Btngetdata" runat="server" Text="GeT Data" OnClick="Button1_Click" />
+                            <asp:Button ID="Btngetdata" runat="server" Text="GeT Data" OnClick="Button1_Click" CssClass="btn btn-info" />
                               <asp:Label ID="lblerror" runat="server" Text="."></asp:Label>
-                            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click1" Text="Cancel" />
+                            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click1" Text="Cancel" Height="33px" />
                         </div>
                         
                         <div class="form-group">

@@ -13,11 +13,18 @@ public partial class WebSite1_Admin_Default : System.Web.UI.Page
 
     }
 
+    protected void Btnlogout_Click(object sender, EventArgs e)
+    {
+        Session.Remove("username");
+        Session.Remove("pass");
+        Response.Redirect("../login.aspx");
+    }
+
     protected void Button1_Click(object sender, EventArgs e)
     {
         try
         {
-            var cust = from c in dv.posts                                          //retreive data from database passing id
+            var cust = from c in dv.posts                                          //retreive column  from database passing id 
                        where c.post_id == Convert.ToInt32(Txtpostid.Text)
                        select new { c.Title, c.Breif ,c.disclaimer};
 
@@ -52,8 +59,31 @@ public partial class WebSite1_Admin_Default : System.Web.UI.Page
 
     protected void Btnupdate_Click(object sender, EventArgs e)
     {
+                                                                             //update record
+        var query = from u in dv.posts
+                    where u.post_id == Convert.ToInt32(Txtpostid.Text)
+                    select u;
 
-
+        foreach(var items in query)
+        {
+            items.Title = Txtupdatetitle.Text;
+            items.disclaimer = Txtdisclaimer.Text;
+            items.Breif = editor1.InnerHtml.ToString();
+        }
+        try
+        {
+            dv.SubmitChanges();
+        }
+        catch(Exception ex)
+        {
+            lblerror.Text = "problem in update record";
+        }
+        Txtdisclaimer.Text = " ";
+        Txtupdatetitle.Text = " ";
+        Txtpostid.Text = " ";
+              
 
     }
+
+
 }
