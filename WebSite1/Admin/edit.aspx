@@ -1,10 +1,9 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="add.aspx.cs" Inherits="Admin_add" ValidateRequest="false" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="edit.aspx.cs" Inherits="WebSite1_Admin_Default"  ValidateRequest="false"%>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title>SA Times </title>
+   <title>SA Times </title>
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/custom.css" />
     <link rel="stylesheet" href="css/sidebar.css" />
@@ -21,12 +20,9 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-
 <body>
     <form id="form1" runat="server">
-
-        <div id="top-nav" class="navbar navbar-inverse navbar-static-top box-shadow">
+    <div id="top-nav" class="navbar navbar-inverse navbar-static-top box-shadow">
             <div class="container-fluid">
                 <div class="navbar-header">
 
@@ -64,9 +60,8 @@
                     <ul class="nav nav-stacked collapse" id="menu3">
                         <li><a href="add.aspx"><i class="glyphicon glyphicon-circle"></i>Create New  </a></li>
                         <li><a href="view.aspx"><i class="glyphicon glyphicon-circle"></i>View </a></li>
-                          <li><a href="edit.aspx"><i class="glyphicon glyphicon-circle"></i>update</a></li>
+                        <li><a href="edit.aspx"><i class="glyphicon glyphicon-circle"></i>Update </a></li>
                         <li><a href=""><i class="glyphicon glyphicon-circle"></i>
-                            <asp:Button ID="Btnlogout" runat="server" Text="logout" CssClass="btn-danger" OnClick="Btnlogout_Click" />
 
                         </a></li>
                     </ul>
@@ -96,52 +91,33 @@
 
                         <div class="form-group">
 
-                            <label for="exampleInputEmail1">Select page&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label>
-                            &nbsp;<asp:DropDownList ID="DropDownpage" runat="server" Height="31px" Width="155px" AppendDataBoundItems="True" DataSourceID="SqlDataSource1" DataTextField="page_name" DataValueField="page_id" OnSelectedIndexChanged="DropDownpage_SelectedIndexChanged" onchange="sethref()">
-                                <asp:ListItem>--choose--</asp:ListItem>
-                            </asp:DropDownList>
-                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:sareAamConnectionString2 %>" SelectCommand="SELECT DISTINCT * FROM [pages]"></asp:SqlDataSource>
-                        </div>
                         <div class="form-group">
-                            <asp:TextBox ID="Txtadminid" runat="server" CssClass="form-control" placeholder="Admin id" Enabled="false"></asp:TextBox>
+                            <label for="exampleInputPassword1">Write post_id</label>
+                            <asp:TextBox ID="Txtpostid" runat="server" CssClass="form-control" placeholder="id"></asp:TextBox>
+                            <br />
+                            <asp:Button ID="Btngetdata" runat="server" Text="GeT Data" OnClick="Button1_Click" />
+                              <asp:Label ID="lblerror" runat="server" Text="."></asp:Label>
+                            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click1" Text="Cancel" />
                         </div>
-                        <div class="form-group">
-                            <asp:TextBox ID="Txtpageid" runat="server" CssClass="form-control" placeholder="page id" Enabled="false"></asp:TextBox>
-                        </div>
-                        <hr />
-                        <hr />
-
-
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Author</label>
-                            <asp:TextBox ID="Txtauthor" runat="server" CssClass="form-control" placeholder="Author"></asp:TextBox>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Disclaimer</label>
-                            <asp:TextBox ID="Txtdisclaimer" runat="server" CssClass="form-control" placeholder="Disclaimer"></asp:TextBox>
-
-                        </div>
+                        
                         <div class="form-group">
                             <label for="exampleInputPassword1">Title</label>
-                            <asp:TextBox ID="Txttitle" runat="server" CssClass="form-control" placeholder="title"></asp:TextBox>
+                            <asp:TextBox ID="Txtupdatetitle" runat="server" CssClass="form-control" placeholder="title"></asp:TextBox>
+                        </div>
+                             <div class="form-group">
+                            <label for="exampleInputPassword1">Disclaimer</label>
+                            <asp:TextBox ID="Txtdisclaimer" runat="server" CssClass="form-control" placeholder="title"></asp:TextBox>
                         </div>
 
                         <div class="form-group">
                             <%-- <asp:TextBox ID="editor1" runat="server" TextMode="MultiLine"   class="editor1" name="editor1"></asp:TextBox>--%>
                             <textarea runat="server" cols="20" rows="2" class="editor1" name="editor1" id="editor1" ></textarea>
                         </div>
+                           
+                        
 
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">link</label>
-                            <asp:TextBox ID="Txtlink" runat="server" CssClass="form-control" placeholder="link"></asp:TextBox>
-
-                        </div>
-                        <div class="form-group">
-                            <asp:FileUpload ID="FileUpload1" runat="server" />
-
-                        </div>
-
-                        <asp:Button ID="Btnsubmit" runat="server" Text="Button" CssClass="btn btn-primary" OnClick="Btnsubmit_Click" />
+                                      
+                            <asp:Button ID="Btnupdate" runat="server" Text="Update"  CssClass="btn btn-primary" OnClick="Btnupdate_Click"/>
                     </div>
                     <br>
                     <!--/col-span-6-->
@@ -190,26 +166,6 @@
 <script>
 
     var editor = CKEDITOR.replace('editor1');  //editor
-
-    function sethref() {
-
-        var Textb = document.getElementById('<%=Txtpageid.ClientID%>');
-    var parLab = document.getElementById('<%=DropDownpage.ClientID%>').options[document.getElementById('<%=DropDownpage.ClientID%>').selectedIndex].value;
-
-    if (parLab != '--select deptname--') {
-        Textb.value = parLab
-    }
-
-    else {
-
-        Textb.value = '';
-
-    }
-
-}
-
-
-
 
 </script>
 

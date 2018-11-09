@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 
 public partial class Admin_view : System.Web.UI.Page
 {
+    DataClassesDataContext dv = new DataClassesDataContext();
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -14,4 +15,9 @@ public partial class Admin_view : System.Web.UI.Page
 
 
 
+
+    protected void GridView1_SelectedIndexChanged1(object sender, EventArgs e)
+    {
+       
+    }
 }

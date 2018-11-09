@@ -1,5 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="sareAam" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-3N40DTS\SQLEXPRESS;Initial Catalog=sareAam;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="sareAamConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.pages" Member="pages">
+    <Type Name="page">
+      <Column Name="page_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="page_name" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Association Name="page_post" Member="posts" ThisKey="page_id" OtherKey="page_id" Type="post" />
+    </Type>
+  </Table>
   <Table Name="dbo.admin" Member="admins">
     <Type Name="admin">
       <Column Name="ad_username" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
@@ -17,16 +24,9 @@
       <Column Name="link" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="file_name" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
       <Column Name="page_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Breif" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="Breif" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
       <Association Name="admin_post" Member="admin" ThisKey="ad_id" OtherKey="ad_id" Type="admin" IsForeignKey="true" />
       <Association Name="page_post" Member="page" ThisKey="page_id" OtherKey="page_id" Type="page" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.pages" Member="pages">
-    <Type Name="page">
-      <Column Name="page_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="page_name" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
-      <Association Name="page_post" Member="posts" ThisKey="page_id" OtherKey="page_id" Type="post" />
     </Type>
   </Table>
 </Database>
