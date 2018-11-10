@@ -139,16 +139,16 @@
                 <div class="col-12 col-md-6 col-lg-8">
                     <div class="row">
 
-                        <!-- Single Featured Post -->
-                        <div class="col-12 col-lg-7">
+                        <!-- Single Featured Post -->                            <!--discription div-->
+                        <div class="col-12 col-lg-12">
                             <div class="single-blog-post featured-post">
                                 <div class="post-thumb">
-                                    <a href="#"><img src="img/bg-img/25.jpg" alt=""></a>
+                                    <a href="politics.aspx"><img src="img/bg-img/25.jpg" alt=""></a>
                                 </div>
                                 <div class="post-data">
-                                    <a href="politics.aspx" class="post-catagory" style="margin-left:200px;">سیاست سے</a>
+                                  <%--  <a href="politics.aspx" class="post-catagory" style="margin-left:75%;">سیاست سے</a>--%>
                                     <a href="#" class="post-title">
-                                       <div style="margin-left:85px;"><h6>ھاشا ڈیم قومی معاملہ ہے</h6></div>
+                                       <div style="margin-left:40%"><h6>ھاشا ڈیم قومی معاملہ ہے</h6></div>
                                     </a>
                                     <div class="post-meta">
                                         <p class="post-author" style="text-align:right;"> <a href="#">حمزہ شہباز شریف</a></p>
@@ -172,47 +172,7 @@
                             </div>
                         </div>
 
-                        <div class="col-12 col-lg-5">
-                            <!-- Single Featured Post -->
-                            <div class="single-blog-post featured-post-2">
-                                <div class="post-thumb">
-                                    <a href="#"><img src="img/bg-img/amaz.jpg" alt=""></a>
-                                </div>
-                                <div class="post-data">
-                                    <a href="#" class="post-catagory"> </a>
-                                    <div class="post-meta">
-                                        <a href="#" class="post-title">
-                                            <div style="margin-left:50px;"><h6>بھارت کی کشمیر میں جارہیت جاری</h6></div>
-                                        </a>
-                                        <%--<!-- Post Like & Post Comment -->
-                                        <div class="d-flex align-items-center">
-                                            <a href="#" class="post-like"><img src="img/core-img/like.png" alt=""> <span>392</span></a>
-                                            <a href="#" class="post-comment"><img src="img/core-img/chat.png" alt=""> <span>10</span></a>
-                                        </div>--%>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Single Featured Post -->
-                            <div class="single-blog-post featured-post-2">
-                                <div class="post-thumb">
-                                    <a href="#"><img src="img/bg-img/33.jpg" alt=""></a>
-                                </div>
-                                <div class="post-data">
-                                    <a href="#" class="post-catagory"> </a>
-                                    <div class="post-meta">
-                                        <a href="#" class="post-title">
-                                           <div><h6>بیرون ملک جائیدادیں رکھنے والوں پر مقدمہ نہیں کرسکتے</h6></div>
-                                        </a>
-                                        <!-- Post Like & Post Comment -->
-                                        <%--<div class="d-flex align-items-center">
-                                            <a href="#" class="post-like"><img src="img/core-img/like.png" alt=""> <span>392</span></a>
-                                            <a href="#" class="post-comment"><img src="img/core-img/chat.png" alt=""> <span>10</span></a>
-                                        </div>--%>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                                                                     <!--discription div-->
                     </div>
                 </div>
 
@@ -318,27 +278,26 @@
     </div>
     <!-- ##### Featured Post Area End ##### -->
 
-    <!-- ##### Popular News Area Start ##### -->
+    <!-- ##### Popular News Area Start ##### -->                       
+         
     <div class="popular-news-area section-padding-80-50">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-lg-8">
-                    <div class="section-heading">
-                        <h6>حیرت انگیز</h6>
-                    </div>
-
-                    <div class="row">
-
+                <div class="col-12 col-lg-8">                   
+                    <div class="row">                                       <!-- use repeater here-->
                         <!-- Single Post -->
-                        <div class="col-12 col-md-6">
+
+                    <asp:Repeater ID="Repeater1" runat="server">
+                       <ItemTemplate> 
+
+                        <div class="col-12 col-md-6" >
                             <div class="single-blog-post style-3">
                                 <div class="post-thumb">
-                                    <a href="#"><img src="img/bg-img/34.jpg" alt=""></a>
+                                    <a href="politics.aspx?id=<%# Eval("post_id") %>"><img src="./files/<%# Eval("file_name") %>" alt=""></a>
                                 </div>
                                 <div class="post-data">
-                                    <a href="#" class="post-catagory" style="margin-left:50px;">بین الاقوامی بینک کا معمولی سا کیشیر</a>
                                     <a href="#" class="post-title">
-                                        <h6>ہ نوجوان لندن کے ایک بین الاقوامی بینک میں معمولی سا کیشیر تھا‘* *اس نے بینک کے ساتھ ایک ایسا فراڈ کیا جس کی وجہ سے وہ بیسویں صدی کا سب سے بڑا فراڈیا ثابت ہوا‘**وہ کمپیوٹر کی مدد سے بینک کے لاکھوں کلائنٹس کے اکاؤنٹس سے ایک‘ ایک پینی نکالتا تھا</h6>
+                                        <h6><%# Eval("title") %></h6>
                                     </a>
                                     <%--<div class="post-meta d-flex align-items-center">
                                         <a href="#" class="post-like"><img src="img/core-img/like.png" alt=""> <span>392</span></a>
@@ -348,6 +307,10 @@
                             </div>
                         </div>
 
+                         </ItemTemplate>
+                        </asp:Repeater>
+                        
+                     
                         <!-- Single Post -->
                         <div class="col-12 col-md-6">
                             <div class="single-blog-post style-3">
@@ -386,24 +349,8 @@
                             </div>
                         </div>
 
-                        <!-- Single Post -->
-                        <div class="col-12 col-md-6">
-                            <div class="single-blog-post style-3">
-                                <div class="post-thumb">
-                                    <a href="#"><img src="img/bg-img/37.jpg" alt=""></a>
-                                </div>
-                                <div class="post-data">
-                                    <a href="#" class="post-catagory"> </a>
-                                    <a href="#" class="post-title">
-                                        <h6>کینیڈا میں بھنگ کی خریدوفروخت اور استعمال کو قانونی قرار دے دیا گیا</h6>
-                                    </a>
-                                    <%--<div class="post-meta d-flex align-items-center">
-                                        <a href="#" class="post-like"><img src="img/core-img/like.png" alt=""> <span>392</span></a>
-                                        <a href="#" class="post-comment"><img src="img/core-img/chat.png" alt=""> <span>10</span></a>
-                                    </div>--%>
-                                </div>
-                            </div>
-                        </div>
+                      
+                       
                     </div>
                 </div>
 
@@ -439,249 +386,22 @@
     </div>
     <!-- ##### Popular News Area End ##### -->
 
-    <!-- ##### Video Post Area Start ##### -->
-    <div class="video-post-area bg-img bg-overlay" style="background-image: url(img/bg-img/bg1.jpg);">
-        <div class="container">
-            <div class="row justify-content-center">
-                <!-- Single Video Post -->
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="single-video-post">
-                        <img src="img/bg-img/vid.jpg" alt="">
-                        <!-- Video Button -->
-                       <iframe frameborder="0" width="480" height="270" src="https://www.dailymotion.com/embed/video/x6ehz1m" allowfullscreen allow="autoplay"></iframe>
-                    </div>
-                </div>
+  
+               
 
-                <!-- Single Video Post -->
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="single-video-post">
-                        <img src="img/bg-img/video.jpg" alt="">
-                        <!-- Video Button -->
+   
+                      
 
 
-                        <iframe frameborder="0" height="250"
-                            src="//www.dailymotion.com/embed/video/x6dd6pg"
-                            allowfullscreen allow="autoplay"></iframe>
-                    </div>
+                       
+                       
 
-                </div>
+           
+                  
 
-                <!-- Single Video Post -->
-                <div class="col-12 col-sm-6 col-md-4">
-                    <div class="single-video-post">
-                        <img src="img/bg-img/video3.jpg" alt="">
-                        <!-- Video Button -->
-                        <div class="videobtn">
-                            <a href="https://www.youtube.com/watch?v=5BQr-j3BBzU" class="videoPlayer"><i class="fa fa-play" aria-hidden="true"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ##### Video Post Area End ##### -->
+               
 
-    <!-- ##### Editorial Post Area Start ##### -->
-    <div class="editors-pick-post-area section-padding-80-50">
-        <div class="container">
-            <div class="row">
-                <!-- Editors Pick -->
-                <div class="col-12 col-md-7 col-lg-9">
-                    <div class="section-heading">
-                        <h6>Editor’s Pick</h6>
-                    </div>
-
-                    <div class="row">
-
-                        <!-- Single Post -->
-                        <div class="col-12 col-lg-4">
-                            <div class="single-blog-post">
-                                <div class="post-thumb">
-                                    <a href="#"><img src="img/bg-img/1.jpg" alt=""></a>
-                                </div>
-                                <div class="post-data">
-                                    <a href="#" class="post-title">
-                                        <h6>Orci varius natoque penatibus et magnis dis parturient montes.</h6>
-                                    </a>
-                                    <div class="post-meta">
-                                        <div class="post-date"><a href="#">February 11, 2018</a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Single Post -->
-                        <div class="col-12 col-lg-4">
-                            <div class="single-blog-post">
-                                <div class="post-thumb">
-                                    <a href="#"><img src="img/bg-img/2.jpg" alt=""></a>
-                                </div>
-                                <div class="post-data">
-                                    <a href="#" class="post-title">
-                                        <h6>Orci varius natoque penatibus et magnis dis parturient montes.</h6>
-                                    </a>
-                                    <div class="post-meta">
-                                        <div class="post-date"><a href="#">February 11, 2018</a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Single Post -->
-                        <div class="col-12 col-lg-4">
-                            <div class="single-blog-post">
-                                <div class="post-thumb">
-                                    <a href="#"><img src="img/bg-img/3.jpg" alt=""></a>
-                                </div>
-                                <div class="post-data">
-                                    <a href="#" class="post-title">
-                                        <h6>Orci varius natoque penatibus et magnis dis parturient montes.</h6>
-                                    </a>
-                                    <div class="post-meta">
-                                        <div class="post-date"><a href="#">February 11, 2018</a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Single Post -->
-                        <div class="col-12 col-lg-4">
-                            <div class="single-blog-post">
-                                <div class="post-thumb">
-                                    <a href="#"><img src="img/bg-img/4.jpg" alt=""></a>
-                                </div>
-                                <div class="post-data">
-                                    <a href="#" class="post-title">
-                                        <h6>Orci varius natoque penatibus et magnis dis parturient montes.</h6>
-                                    </a>
-                                    <div class="post-meta">
-                                        <div class="post-date"><a href="#">February 11, 2018</a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Single Post -->
-                        <div class="col-12 col-lg-4">
-                            <div class="single-blog-post">
-                                <div class="post-thumb">
-                                    <a href="#"><img src="img/bg-img/5.jpg" alt=""></a>
-                                </div>
-                                <div class="post-data">
-                                    <a href="#" class="post-title">
-                                        <h6>Orci varius natoque penatibus et magnis dis parturient montes.</h6>
-                                    </a>
-                                    <div class="post-meta">
-                                        <div class="post-date"><a href="#">February 11, 2018</a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Single Post -->
-                        <div class="col-12 col-lg-4">
-                            <div class="single-blog-post">
-                                <div class="post-thumb">
-                                    <a href="#"><img src="img/bg-img/6.jpg" alt=""></a>
-                                </div>
-                                <div class="post-data">
-                                    <a href="#" class="post-title">
-                                        <h6>Orci varius natoque penatibus et magnis dis parturient montes.</h6>
-                                    </a>
-                                    <div class="post-meta">
-                                        <div class="post-date"><a href="#">February 11, 2018</a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- World News -->
-                <div class="col-12 col-md-5 col-lg-3">
-                    <div class="section-heading">
-                        <h6>دنیا</h6>
-                    </div>
-
-                    <!-- Single Post -->
-                    <div class="single-blog-post style-2">
-                        <div class="post-thumb">
-                            <a href="#"><img src="img/bg-img/44.jpg" alt=""></a>
-                        </div>
-                        <div class="post-data">
-                            <a href="world.aspx" class="post-title">
-                                <h6>یہودی عبادت گاہ پر حملہ</h6>
-                            </a>
-                            <div class="post-meta">
-<%--                                <div class="post-date"><a href="#">February 11, 2018</a></div>--%>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Single Post -->
-                    <div class="single-blog-post style-2">
-                        <div class="post-thumb">
-                            <a href="#"><img src="img/bg-img/45.jpg" alt=""></a>
-                        </div>
-                        <div class="post-data">
-                            <a href="world.aspx" class="post-title">
-                                <h6>ایک سزا ہے اور ایک قیمت ہے جو ادا کرنی ہو گی</h6>
-                            </a>
-                            <div class="post-meta">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Single Post -->
-                    <div class="single-blog-post style-2">
-                        <div class="post-thumb">
-                            <a href="#"><img src="img/bg-img/46.jpg" alt=""></a>
-                        </div>
-                        <div class="post-data">
-                            <a href="world.aspx" class="post-title">
-                                <h6>ہم روس کوایٹمی معاہدے کی خلاف ورزی نہیں کرنے دیں گے</h6>
-                            </a>
-                            <div class="post-meta">
-                               <%-- <div class="post-date"><a href="#">February 11, 2018</a></div>--%>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Single Post -->
-                    <div class="single-blog-post style-2">
-                        <div class="post-thumb">
-                            <a href="#"><img src="img/bg-img/47.jpg" alt=""></a>
-                        </div>
-                        <div class="post-data">
-                            <a href="#" class="post-title">
-                                <h6>پولیس چیف کی ہلاکت کے بعد پولنگ ملتوی</h6>
-                            </a>
-                            <div class="post-meta">
-                           
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Single Post -->
-                    <div class="single-blog-post style-2">
-                        <div class="post-thumb">
-                            <a href="#"><img src="img/bg-img/48.jpg" alt=""></a>
-                        </div>
-                        <div class="post-data">
-                            <a href="#" class="post-title">
-                                <h6>فٹبال ایسوسی ایشن اور شاہد خان کے درمیان 900 ملین پاؤنڈ پر معاملات طے پاگئے۔</h6>
-                            </a>
-                            <div class="post-meta">
-                              
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ##### Editorial Post Area End ##### -->
+             
 
     <!-- ##### Footer Add Area Start ##### -->
     <div class="footer-add-area">

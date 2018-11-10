@@ -58,6 +58,7 @@ public partial class Admin_add : System.Web.UI.Page
         {
             disclaimer = Txtdisclaimer.Text,
             Title = Txttitle.Text,
+            Author=Txtauthor.Text,        
             link = Txtlink.Text,
             file_name = pathstring,
             page_id = Convert.ToInt32(Txtpageid.Text),
@@ -67,7 +68,7 @@ public partial class Admin_add : System.Web.UI.Page
         dv.posts.InsertOnSubmit(p);
         dv.SubmitChanges();
         FileUpload1.SaveAs(MapPath(pathstring));
-        Txtdisclaimer.Text = " "; Txttitle.Text = " "; Txtlink.Text = " ";
+        Txtdisclaimer.Text = " "; Txttitle.Text = " "; Txtlink.Text = " "; Txtauthor.Text = " ";
         
        
     }

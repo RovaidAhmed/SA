@@ -31,17 +31,17 @@ Partial Public Class DataClassesDataContext
   #Region "Extensibility Method Definitions"
   Partial Private Sub OnCreated()
   End Sub
-  Partial Private Sub Insertpage(instance As page)
-    End Sub
-  Partial Private Sub Updatepage(instance As page)
-    End Sub
-  Partial Private Sub Deletepage(instance As page)
-    End Sub
   Partial Private Sub Insertadmin(instance As admin)
     End Sub
   Partial Private Sub Updateadmin(instance As admin)
     End Sub
   Partial Private Sub Deleteadmin(instance As admin)
+    End Sub
+  Partial Private Sub Insertpage(instance As page)
+    End Sub
+  Partial Private Sub Updatepage(instance As page)
+    End Sub
+  Partial Private Sub Deletepage(instance As page)
     End Sub
   Partial Private Sub Insertpost(instance As post)
     End Sub
@@ -76,15 +76,15 @@ Partial Public Class DataClassesDataContext
 		OnCreated
 	End Sub
 	
-	Public ReadOnly Property pages() As System.Data.Linq.Table(Of page)
-		Get
-			Return Me.GetTable(Of page)
-		End Get
-	End Property
-	
 	Public ReadOnly Property admins() As System.Data.Linq.Table(Of admin)
 		Get
 			Return Me.GetTable(Of admin)
+		End Get
+	End Property
+	
+	Public ReadOnly Property pages() As System.Data.Linq.Table(Of page)
+		Get
+			Return Me.GetTable(Of page)
 		End Get
 	End Property
 	
@@ -93,113 +93,6 @@ Partial Public Class DataClassesDataContext
 			Return Me.GetTable(Of post)
 		End Get
 	End Property
-End Class
-
-<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.pages")>  _
-Partial Public Class page
-	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
-	
-	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
-	
-	Private _page_id As Integer
-	
-	Private _page_name As String
-	
-	Private _posts As EntitySet(Of post)
-	
-    #Region "Extensibility Method Definitions"
-    Partial Private Sub OnLoaded()
-    End Sub
-    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
-    End Sub
-    Partial Private Sub OnCreated()
-    End Sub
-    Partial Private Sub Onpage_idChanging(value As Integer)
-    End Sub
-    Partial Private Sub Onpage_idChanged()
-    End Sub
-    Partial Private Sub Onpage_nameChanging(value As String)
-    End Sub
-    Partial Private Sub Onpage_nameChanged()
-    End Sub
-    #End Region
-	
-	Public Sub New()
-		MyBase.New
-		Me._posts = New EntitySet(Of post)(AddressOf Me.attach_posts, AddressOf Me.detach_posts)
-		OnCreated
-	End Sub
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_page_id", AutoSync:=AutoSync.OnInsert, DbType:="Int NOT NULL IDENTITY", IsPrimaryKey:=true, IsDbGenerated:=true)>  _
-	Public Property page_id() As Integer
-		Get
-			Return Me._page_id
-		End Get
-		Set
-			If ((Me._page_id = value)  _
-						= false) Then
-				Me.Onpage_idChanging(value)
-				Me.SendPropertyChanging
-				Me._page_id = value
-				Me.SendPropertyChanged("page_id")
-				Me.Onpage_idChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_page_name", DbType:="NVarChar(500) NOT NULL", CanBeNull:=false)>  _
-	Public Property page_name() As String
-		Get
-			Return Me._page_name
-		End Get
-		Set
-			If (String.Equals(Me._page_name, value) = false) Then
-				Me.Onpage_nameChanging(value)
-				Me.SendPropertyChanging
-				Me._page_name = value
-				Me.SendPropertyChanged("page_name")
-				Me.Onpage_nameChanged
-			End If
-		End Set
-	End Property
-	
-	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="page_post", Storage:="_posts", ThisKey:="page_id", OtherKey:="page_id")>  _
-	Public Property posts() As EntitySet(Of post)
-		Get
-			Return Me._posts
-		End Get
-		Set
-			Me._posts.Assign(value)
-		End Set
-	End Property
-	
-	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
-	
-	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
-	
-	Protected Overridable Sub SendPropertyChanging()
-		If ((Me.PropertyChangingEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
-		End If
-	End Sub
-	
-	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
-		If ((Me.PropertyChangedEvent Is Nothing)  _
-					= false) Then
-			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
-		End If
-	End Sub
-	
-	Private Sub attach_posts(ByVal entity As post)
-		Me.SendPropertyChanging
-		entity.page = Me
-	End Sub
-	
-	Private Sub detach_posts(ByVal entity As post)
-		Me.SendPropertyChanging
-		entity.page = Nothing
-	End Sub
 End Class
 
 <Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.admin")>  _
@@ -331,6 +224,113 @@ Partial Public Class admin
 	End Sub
 End Class
 
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.pages")>  _
+Partial Public Class page
+	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	
+	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
+	
+	Private _page_id As Integer
+	
+	Private _page_name As String
+	
+	Private _posts As EntitySet(Of post)
+	
+    #Region "Extensibility Method Definitions"
+    Partial Private Sub OnLoaded()
+    End Sub
+    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
+    End Sub
+    Partial Private Sub OnCreated()
+    End Sub
+    Partial Private Sub Onpage_idChanging(value As Integer)
+    End Sub
+    Partial Private Sub Onpage_idChanged()
+    End Sub
+    Partial Private Sub Onpage_nameChanging(value As String)
+    End Sub
+    Partial Private Sub Onpage_nameChanged()
+    End Sub
+    #End Region
+	
+	Public Sub New()
+		MyBase.New
+		Me._posts = New EntitySet(Of post)(AddressOf Me.attach_posts, AddressOf Me.detach_posts)
+		OnCreated
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_page_id", AutoSync:=AutoSync.OnInsert, DbType:="Int NOT NULL IDENTITY", IsPrimaryKey:=true, IsDbGenerated:=true)>  _
+	Public Property page_id() As Integer
+		Get
+			Return Me._page_id
+		End Get
+		Set
+			If ((Me._page_id = value)  _
+						= false) Then
+				Me.Onpage_idChanging(value)
+				Me.SendPropertyChanging
+				Me._page_id = value
+				Me.SendPropertyChanged("page_id")
+				Me.Onpage_idChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_page_name", DbType:="NVarChar(500) NOT NULL", CanBeNull:=false)>  _
+	Public Property page_name() As String
+		Get
+			Return Me._page_name
+		End Get
+		Set
+			If (String.Equals(Me._page_name, value) = false) Then
+				Me.Onpage_nameChanging(value)
+				Me.SendPropertyChanging
+				Me._page_name = value
+				Me.SendPropertyChanged("page_name")
+				Me.Onpage_nameChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="page_post", Storage:="_posts", ThisKey:="page_id", OtherKey:="page_id")>  _
+	Public Property posts() As EntitySet(Of post)
+		Get
+			Return Me._posts
+		End Get
+		Set
+			Me._posts.Assign(value)
+		End Set
+	End Property
+	
+	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
+	
+	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+	
+	Protected Overridable Sub SendPropertyChanging()
+		If ((Me.PropertyChangingEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
+		End If
+	End Sub
+	
+	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
+		If ((Me.PropertyChangedEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
+		End If
+	End Sub
+	
+	Private Sub attach_posts(ByVal entity As post)
+		Me.SendPropertyChanging
+		entity.page = Me
+	End Sub
+	
+	Private Sub detach_posts(ByVal entity As post)
+		Me.SendPropertyChanging
+		entity.page = Nothing
+	End Sub
+End Class
+
 <Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.post")>  _
 Partial Public Class post
 	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
@@ -352,6 +352,8 @@ Partial Public Class post
 	Private _page_id As Integer
 	
 	Private _Breif As String
+	
+	Private _Author As String
 	
 	Private _admin As EntityRef(Of admin)
 	
@@ -395,6 +397,10 @@ Partial Public Class post
     Partial Private Sub OnBreifChanging(value As String)
     End Sub
     Partial Private Sub OnBreifChanged()
+    End Sub
+    Partial Private Sub OnAuthorChanging(value As String)
+    End Sub
+    Partial Private Sub OnAuthorChanged()
     End Sub
     #End Region
 	
@@ -538,6 +544,22 @@ Partial Public Class post
 				Me._Breif = value
 				Me.SendPropertyChanged("Breif")
 				Me.OnBreifChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Author", DbType:="NVarChar(500)")>  _
+	Public Property Author() As String
+		Get
+			Return Me._Author
+		End Get
+		Set
+			If (String.Equals(Me._Author, value) = false) Then
+				Me.OnAuthorChanging(value)
+				Me.SendPropertyChanging
+				Me._Author = value
+				Me.SendPropertyChanged("Author")
+				Me.OnAuthorChanged
 			End If
 		End Set
 	End Property
