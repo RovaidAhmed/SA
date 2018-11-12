@@ -9,23 +9,82 @@ using System.Data.SqlClient;
 
 public partial class politics : System.Web.UI.Page
 {
+    int did;
     DataClassesDataContext dv = new DataClassesDataContext();
+   
     protected void Page_Load(object sender, EventArgs e)
     {
-        get_data_from_database();
+
        
+        get_data_from_database();       //yahan sirf wahe data show hoga jo uspage ka ha
+        sidebar_latest_update();         //side bar updates
+
+
+        discription_div();
         
+     
+
+
     }
 
     void get_data_from_database()
     {
-        var cust = from p in dv.posts
-                   select p;
-        Repeater1.DataSource = cust;
-        Repeater1.DataBind();
-      
+
+        using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-3N40DTS\\SQLEXPRESS;Initial Catalog=sareAam;Integrated Security=True"))
+        {
+            var query = " select * from post where post.page_id=2 ";
+            SqlCommand com = new SqlCommand(query, con);
+            con.Open();
+            com.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(com);
+            da.Fill(dt);
+            Repeaterpolitics.DataSource = dt;
+            Repeaterpolitics.DataBind();
+            con.Close();
+        }
+
 
     }
+
+    void sidebar_latest_update()
+    {
+
+        using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-3N40DTS\\SQLEXPRESS;Initial Catalog=sareAam;Integrated Security=True"))
+        {
+            var query = " select * from post  where post.page_id=2";
+            SqlCommand com = new SqlCommand(query, con);
+            con.Open();
+            com.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(com);
+             da.Fill(dt);
+            Repeatersidebar.DataSource = dt;
+            Repeatersidebar.DataBind();
+            con.Close();
+        }
+
+
+    }
+
+
+
+    void discription_div()
+    {
+        if (IsPostBack)
+        {
+            did = Convert.ToInt32(Request.QueryString["id"].ToString());
+        }
+        var cust = from p in dv.posts
+                   where p.post_id == did
+                   select p;     
+       
+    }
+
+
+
+
+
 
    
 }

@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="ckeditor/ckeditor.js"></script>
 
      <style>
       body{
@@ -138,29 +139,29 @@
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-8">
                     <div class="row">
+ 
 
-                        <!-- Single Featured Post -->                            <!--discription div-->
-                        <div class="col-12 col-lg-12">
+                       <!--discription div-->
+
+                        <!-- Single Featured Post -->                            
+                        <div class="col-12 col-lg-12" runat="server">
                             <div class="single-blog-post featured-post">
+                                <a href="#" class="post-title">
+                                       <div style="margin-left:40%;"><h1>ھاشا ڈیم قومی معاملہ ہے</h1></div>
+                                    </a>
                                 <div class="post-thumb">
                                     <a href="politics.aspx"><img src="img/bg-img/25.jpg" alt=""></a>
                                 </div>
                                 <div class="post-data">
-                                  <%--  <a href="politics.aspx" class="post-catagory" style="margin-left:75%;">سیاست سے</a>--%>
-                                    <a href="#" class="post-title">
-                                       <div style="margin-left:40%"><h6>ھاشا ڈیم قومی معاملہ ہے</h6></div>
-                                    </a>
+                                 <%-- <a href="politics.aspx" class="post-catagory" style="margin-left:85%;">سیاست سے</a>--%>
+                                    
                                     <div class="post-meta">
                                         <p class="post-author" style="text-align:right;"> <a href="#">حمزہ شہباز شریف</a></p>
-                                        <p class="post-excerp">
-                                            مسلم لیگ ن کے رہنما حمزہ شہباز شریف نے کہا ہے کہ دیامر بھاشا ڈیم قومی معاملہ ہے، کالا باغ کی طرح سیاست کی نذر نہیں ہونا چاہیے، پاکستان اور ڈیمز کے معاملے پر ہم سب اکٹھے ہیں۔
+                                        <p class="post-excerp">                                    
 
-یہ بات انہوں نے اسلام آباد میں سپریم کورٹ کے واٹر سمپوزیم میں شرکت کے موقع پر میڈیا سے گفتگو کرتے ہوئے کہی، حمزہ شہباز شریف نے کہا کہ سابق وزیر اعظم نوازشریف نے دیامربھاشا ڈیم کی48ہزار ایکڑ زمین خریدی، بھاشاڈیم سے16ہزار میگاواٹ بجلی بنے گی، یہ ڈیم 12ارب ڈالر کا منصوبہ ہے۔
-ان کا مزید کہنا تھا کہ کالا باغ ڈیم سیاست کی نذر ہوگیا، کالاباغ بن جاتا تو سستی بجلی پیدا ہوتی، دشمن ملک کہتا ہے کہ پاکستان کو پیاسا ماریں گے، دشمن جان لے کہ پاکستان اور ڈیمز کے معاملے پر ہم سب اکٹھے ہیں، سپریم کورٹ کا ڈیمز کی تعمیر کا اقدام خوش آئند ہے۔
-دیامربھاشا اور مہمند ڈیم کیلئے فنڈ کی تعمیر ضروری ہے، پانی کا مسئلہ اہم ہے، آئندہ نسلوں کیلئے پانی کے ذخائر بہت ضروری ہیں۔ پانی ایک انمول تحفہ ہے اس کی قدر کرنی ہے، ہم سب نے مل کر پانی کو ضائع ہونے سے بچانا ہے اور ڈیم بنانا ہے۔
-ان کا مزید کہنا تھا کہ میرے والد شہباز شریف کی کمر میں تکلیف تھی جس کی وجہ سے انہوں نے مجھے بھیجا، مجھے بطور قائد حزب اختلاف پنجاب اسمبلی شرکت کی دعوت بھی دی گئی تھی۔
-ایک سوال کے جواب میں ان کا کہنا تھا کہ دیامر بھاشا ڈیم قومی معاملہ ہے، سیاست کی نذرنہیں ہونا چاہیے، ن لیگ کے دور میں ملک سے اندھیرے دور ہوئے، نواز شریف نے اپنے دور میں ہزاروں ایکڑ زمین ڈیم کی تعمیر کیلئے خریدی۔
- .
+                                                
+                                               hjgggnyjggbyggggbgfcv vvvbfcfcfccfcfcc
+                            
                                         </p>
                                         <!-- Post Like & Post Comment -->
                                         <%--<div class="d-flex align-items-center">
@@ -172,106 +173,49 @@
                             </div>
                         </div>
 
-                                                                     <!--discription div-->
+                             
+                         <!--discription div-->
+
                     </div>
                 </div>
+                
 
                 <div class="col-12 col-md-6 col-lg-4">
                     <!-- Single Featured Post -->
+                      <asp:Repeater ID="Repeatersidebar" runat="server">
+                            <ItemTemplate>
                     <div class="single-blog-post small-featured-post d-flex">
+                      
+                                
+                        
+
                         <div class="post-thumb">
-                            <a href="#"><img src="img/bg-img/38.jpg" alt=""></a>
+                            <a href="#"><img src="./files/<%# Eval("file_name") %>" alt=""></a>
                         </div>
                         <div class="post-data">
-                            <a href="politics.aspx" class="post-catagory">سیاست</a>
+                            <a href="politics.aspx" class="post-catagory">.</a>
                             <div class="post-meta">
                                 <a href="#" class="post-title">
-                                    <h6>سیاستدانوں میں اکثر مجرم ہیں</h6>
+                                    <h6><%# Eval("title") %></h6>
                                 </a>
                                 <%--<p class="post-date"><span>7:00 AM</span> | <span>April 14</span></p>--%>
                             </div>
                         </div>
+                     
                     </div>
+                           </ItemTemplate>
+                        </asp:Repeater>
 
-                    <!-- Single Featured Post -->
-                    <div class="single-blog-post small-featured-post d-flex">
-                        <div class="post-thumb">
-                            <a href="#"><img src="img/bg-img/39.jpg" alt=""></a>
-                        </div>
-                        <div class="post-data">
-                            <a href="Amazing.aspx" class="post-catagory"> حیرت انگیز</a>
-                            <div class="post-meta">
-                                <a href="#" class="post-title">
-                                    <h6>آخر میں کرکٹ دو قوموں کو آپس میں جوڑ دیتی ہے</h6>
-                                </a>
-<%--                                <p class="post-date"><span>7:00 AM</span> | <span>April 14</span></p>--%>
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- Single Featured Post -->
-                    <div class="single-blog-post small-featured-post d-flex">
-                        <div class="post-thumb">
-                            <a href="#"><img src="img/bg-img/40.jpg" alt=""></a>
-                        </div>
-                        <div class="post-data">
-                            <a href="weird.aspx" class="post-catagory">عجیب و غریب</a>
-                            <div class="post-meta">
-                                <a href="#" class="post-title">
-                                    <h6>بہو نے سسرالیوں کو کھانے میں کیا ملا کر دیا.</h6>
-                                </a>
-<%--                                <p class="post-date"><span>7:00 AM</span> | <span>April 14</span></p>--%>
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- Single Featured Post -->
-                    <div class="single-blog-post small-featured-post d-flex">
-                        <div class="post-thumb">
-                            <a href="#"><img src="img/bg-img/41.jpg" alt=""></a>
-                        </div>
-                        <div class="post-data">
-                            <a href="pakistan.aspx" class="post-catagory">پاکستان</a>
-                            <div class="post-meta">
-                                <a href="#" class="post-title">
-                                    <h6>پاکستانی گلوکار فخرعالم کوروسی ایئرپورٹ پر نظربندکردیاگیا</h6>
-                                </a>
-<%--                                <p class="post-date"><span>7:00 AM</span> | <span>April 14</span></p>--%>
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- Single Featured Post -->
-                    <div class="single-blog-post small-featured-post d-flex">
-                        <div class="post-thumb">
-                            <a href="#"><img src="img/bg-img/42.jpg" alt=""></a>
-                        </div>
-                        <div class="post-data">
-                            <a href="world.aspx" class="post-catagory">دنیا سے</a>
-                            <div class="post-meta">
-                                <a href="#" class="post-title">
-                                    <h6>نجی ایئرلائن کا مسافر طیارہ سمندر میں گر کر تباہ</h6>
-                                </a>
-<%--                                <p class="post-date"><span>7:00 AM</span> | <span>April 14</span></p>--%>
-                            </div>
-                        </div>
-                    </div>
+                    
 
-                    <!-- Single Featured Post -->
-                    <div class="single-blog-post small-featured-post d-flex">
-                        <div class="post-thumb">
-                            <a href="#"><img src="img/bg-img/43.jpg" alt=""></a>
-                        </div>
-                        <div class="post-data">
-                            <a href="levlihoods.aspx" class="post-catagory">معیشت</a>
-                            <div class="post-meta">
-                                <a href="#" class="post-title">
-                                    <h6>واٹس ایپ نے دو اہم فیچرز پر کام شروع کردیا</h6>
-                                </a>
-<%--                                <p class="post-date"><span>7:00 AM</span> | <span>April 14</span></p>--%>
-                            </div>
-                        </div>
-                    </div>
+                  
+                 
+
+                  
+                    
                 </div>
             </div>
         </div>
@@ -287,7 +231,7 @@
                     <div class="row">                                       <!-- use repeater here-->
                         <!-- Single Post -->
 
-                    <asp:Repeater ID="Repeater1" runat="server">
+                    <asp:Repeater ID="Repeaterpolitics" runat="server">
                        <ItemTemplate> 
 
                         <div class="col-12 col-md-6" >
@@ -311,44 +255,7 @@
                         </asp:Repeater>
                         
                      
-                        <!-- Single Post -->
-                        <div class="col-12 col-md-6">
-                            <div class="single-blog-post style-3">
-                                <div class="post-thumb">
-                                    <a href="#"><img src="img/bg-img/35.jpg" alt=""></a>
-                                </div>
-                                <div class="post-data">
-                                    <a href="#" class="post-catagory"> </a>
-                                    <a href="#" class="post-title">
-                                        <h6>ماحولیاتی اور سمندری آلودگی کی بڑی وجہ، شاپنگ بیگز</h6>
-                                    </a>
-                                   <%-- <div class="post-meta d-flex align-items-center">
-                                        <a href="#" class="post-like"><img src="img/core-img/like.png" alt=""> <span>392</span></a>
-                                        <a href="#" class="post-comment"><img src="img/core-img/chat.png" alt=""> <span>10</span></a>
-                                    </div>--%>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Single Post -->
-                        <div class="col-12 col-md-6">
-                            <div class="single-blog-post style-3">
-                                <div class="post-thumb">
-                                    <a href="#"><img src="img/bg-img/36.jpg" alt=""></a>
-                                </div>
-                                <div class="post-data">
-                                    <a href="#" class="post-catagory"> </a>
-                                    <a href="#" class="post-title">
-                                        <h6>اجلاس کے دوران زلزلہ: وزیراعظم درخواست کے باوجود دفتر سے باہر نہ نکلے</h6>
-                                    </a>
-                                   <%-- <div class="post-meta d-flex align-items-center">
-                                        <a href="#" class="post-like"><img src="img/core-img/like.png" alt=""> <span>392</span></a>
-                                        <a href="#" class="post-comment"><img src="img/core-img/chat.png" alt=""> <span>10</span></a>
-                                    </div>--%>
-                                </div>
-                            </div>
-                        </div>
-
+                        
                       
                        
                     </div>
@@ -485,6 +392,11 @@
             </div>
         </div>
     </footer>
+          <script>
+
+    var editor = CKEDITOR.replace('editor1');  //editor
+
+</script>
     <!-- ##### Footer Area Start ##### -->
   <!-- ##### All Javascript Files ##### -->
     <!-- jQuery-2.2.4 js -->
