@@ -142,15 +142,19 @@
  
 
                        <!--discription div-->
+                        <asp:Repeater ID="Repeater1" runat="server">
+                            <ItemTemplate>
 
+                        
                         <!-- Single Featured Post -->                            
-                        <div class="col-12 col-lg-12" runat="server">
+                        <div class="col-12 col-lg-12" id="discriptiondiv">
                             <div class="single-blog-post featured-post">
                                 <a href="#" class="post-title">
-                                       <div style="margin-left:40%;"><h1>ھاشا ڈیم قومی معاملہ ہے</h1></div>
+                                       <div style="margin-left:25%"><h1><%# Eval("title") %></h1></div>
+                                 
                                     </a>
                                 <div class="post-thumb">
-                                    <a href="politics.aspx"><img src="img/bg-img/25.jpg" alt=""></a>
+                                    <a href="politics.aspx"><img src="./files/<%# Eval("file_name") %>" alt=""></a>
                                 </div>
                                 <div class="post-data">
                                  <%-- <a href="politics.aspx" class="post-catagory" style="margin-left:85%;">سیاست سے</a>--%>
@@ -172,8 +176,11 @@
                                 </div>
                             </div>
                         </div>
+ 
+                                
+                            </ItemTemplate>
+                        </asp:Repeater>
 
-                             
                          <!--discription div-->
 
                     </div>
@@ -394,7 +401,9 @@
     </footer>
           <script>
 
-    var editor = CKEDITOR.replace('editor1');  //editor
+              var editor = CKEDITOR.replace('editor1');  //editor
+
+            
 
 </script>
     <!-- ##### Footer Area Start ##### -->

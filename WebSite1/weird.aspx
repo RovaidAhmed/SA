@@ -238,7 +238,7 @@
                         <div class="col-12 col-md-6" >
                             <div class="single-blog-post style-3">
                                 <div class="post-thumb">
-                                    <a href="politics.aspx?id=<%# Eval("post_id") %>"><img src="./files/<%# Eval("file_name") %>" alt=""></a>
+                                    <a href="weird.aspx?id=<%# Eval("post_id") %>"><img src="./files/<%# Eval("file_name") %>" alt=""></a>
                                 </div>
                                 <div class="post-data">
                                     <a href="#" class="post-title">

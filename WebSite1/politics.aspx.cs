@@ -9,19 +9,33 @@ using System.Data.SqlClient;
 
 public partial class politics : System.Web.UI.Page
 {
-    int did;
-    DataClassesDataContext dv = new DataClassesDataContext();
    
+    DataClassesDataContext dv = new DataClassesDataContext();
+    int id;
+
     protected void Page_Load(object sender, EventArgs e)
     {
 
+
+        get_data_from_database();
+
+        sidebar_latest_update();
+
+        if (Request.QueryString["id"] == null)
+        {
+
+        }
+        else
+        {
+            discription();
+        }
        
-        get_data_from_database();       //yahan sirf wahe data show hoga jo uspage ka ha
-        sidebar_latest_update();         //side bar updates
+       
+
+         
 
 
-        discription_div();
-        
+   
      
 
 
@@ -32,6 +46,7 @@ public partial class politics : System.Web.UI.Page
 
         using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-3N40DTS\\SQLEXPRESS;Initial Catalog=sareAam;Integrated Security=True"))
         {
+
             var query = " select * from post where post.page_id=2 ";
             SqlCommand com = new SqlCommand(query, con);
             con.Open();
@@ -69,20 +84,32 @@ public partial class politics : System.Web.UI.Page
 
 
 
-    void discription_div()
+ 
+    void discription()
     {
-        if (IsPostBack)
+        using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-3N40DTS\\SQLEXPRESS;Initial Catalog=sareAam;Integrated Security=True"))
         {
-            did = Convert.ToInt32(Request.QueryString["id"].ToString());
+            if (Request.QueryString["id"] == null)
+            {
+
+            }
+            else
+            {
+
+              id = Convert.ToInt32(Request.QueryString["id"].ToString());
+              var query = " select * from post  where post_id='"+id+"'";
+             SqlCommand com = new SqlCommand(query, con);
+            con.Open();
+            com.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(com);
+            da.Fill(dt);
+            Repeater1.DataSource = dt;
+            Repeater1.DataBind();
+            con.Close();
+            }
         }
-        var cust = from p in dv.posts
-                   where p.post_id == did
-                   select p;     
-       
     }
-
-
-
 
 
 
