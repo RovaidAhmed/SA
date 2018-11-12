@@ -142,38 +142,45 @@
  
 
                        <!--discription div-->
+                        <asp:Repeater ID="Repeater1" runat="server">
+                            <ItemTemplate>
 
+                        
                         <!-- Single Featured Post -->                            
-                        <div class="col-12 col-lg-12" runat="server">
+                        <div class="col-12 col-lg-12" id="discriptiondiv">
                             <div class="single-blog-post featured-post">
                                 <a href="#" class="post-title">
-                                       <div style="margin-left:40%;"><h1>ھاشا ڈیم قومی معاملہ ہے</h1></div>
+                                       <div style="margin-left:25%"><h1><%# Eval("title") %></h1></div>
+                                 
                                     </a>
                                 <div class="post-thumb">
-                                    <a href="politics.aspx"><img src="img/bg-img/25.jpg" alt=""></a>
+                                    <a href="Amazing.aspx"><img src="./files/<%# Eval("file_name") %>" alt=""></a>
                                 </div>
                                 <div class="post-data">
                                  <%-- <a href="politics.aspx" class="post-catagory" style="margin-left:85%;">سیاست سے</a>--%>
                                     
                                     <div class="post-meta">
-                                        <p class="post-author" style="text-align:right;"> <a href="#">حمزہ شہباز شریف</a></p>
+                                        <p class="post-author" style="text-align:right;"> <a href="#"> <%# Eval("Author") %></a></p>
                                         <p class="post-excerp">                                    
 
                                                 
                                                hjgggnyjggbyggggbgfcv vvvbfcfcfccfcfcc
                             
                                         </p>
-                                        <%--<!-- like and share-->
-                                        <div class="d-flex align-items-center">
-                                            <div class="fb-share-button" data-href="https://www.facebook.com/SareAam/" data-layout="box_count" data-size="small" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.facebook.com%2FSareAam%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+                                        <!-- Post Like & Post Comment -->
+                                        <%--<div class="d-flex align-items-center">
+                                            <a href="#" class="post-like"><img src="img/core-img/like.png" alt=""> <span>392</span></a>
                                             <a href="#" class="post-comment"><img src="img/core-img/chat.png" alt=""> <span>10</span></a>
                                         </div>--%>
                                     </div>
                                 </div>
                             </div>
                         </div>
+ 
+                                
+                            </ItemTemplate>
+                        </asp:Repeater>
 
-                             
                          <!--discription div-->
 
                     </div>
@@ -190,12 +197,12 @@
                         
 
                         <div class="post-thumb">
-                            <a href="#"><img src="./files/<%# Eval("file_name") %>" alt=""></a>
+                            <a href="politics.aspx"><img src="./files/<%# Eval("file_name") %>" alt=""></a>
                         </div>
                         <div class="post-data">
                             <a href="politics.aspx" class="post-catagory">.</a>
                             <div class="post-meta">
-                                <a href="#" class="post-title">
+                                <a href="politics.aspx" class="post-title">
                                     <h6 style="margin-right:6px;"><%# Eval(" title") %></h6>
                                 </a>
                                 <%--<p class="post-date"><span>7:00 AM</span> | <span>April 14</span></p>--%>
@@ -237,10 +244,10 @@
                         <div class="col-12 col-md-6" >
                             <div class="single-blog-post style-3">
                                 <div class="post-thumb">
-                                    <a href="politics.aspx?id=<%# Eval("post_id") %>"><img src="./files/<%# Eval("file_name") %>" alt=""></a>
+                                    <a href="Amazing.aspx?id=<%# Eval("post_id") %>"><img src="./files/<%# Eval("file_name") %>" alt=""></a>
                                 </div>
                                 <div class="post-data">
-                                    <a href="#" class="post-title">
+                                    <a href="Amazing.aspx" class="post-title">
                                         <h6><%# Eval("title") %></h6>
                                     </a>
                                     <%--<div class="post-meta d-flex align-items-center">

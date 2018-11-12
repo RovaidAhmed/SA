@@ -160,7 +160,7 @@
                                  <%-- <a href="politics.aspx" class="post-catagory" style="margin-left:85%;">سیاست سے</a>--%>
                                     
                                     <div class="post-meta">
-                                        <p class="post-author" style="text-align:right;"> <a href="#">حمزہ شہباز شریف</a></p>
+                                        <p class="post-author" style="text-align:right;"> <a href="#"> <%# Eval("Author") %></a></p>
                                         <p class="post-excerp">                                    
 
                                                 
@@ -197,13 +197,13 @@
                         
 
                         <div class="post-thumb">
-                            <a href="#"><img src="./files/<%# Eval("file_name") %>" alt=""></a>
+                            <a href="Amazing.aspx"><img src="./files/<%# Eval("file_name") %>" alt=""></a>
                         </div>
                         <div class="post-data">
                             <a href="politics.aspx" class="post-catagory">.</a>
                             <div class="post-meta">
-                                <a href="#" class="post-title">
-                                    <h6><%# Eval("title") %></h6>
+                                <a href="Amazing.aspx" class="post-title">
+                                    <h6 style="margin-right:6px;"><%# Eval("title") %></h6>
                                 </a>
                                 <%--<p class="post-date"><span>7:00 AM</span> | <span>April 14</span></p>--%>
                             </div>

@@ -47,7 +47,7 @@ public partial class politics : System.Web.UI.Page
         using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-3N40DTS\\SQLEXPRESS;Initial Catalog=sareAam;Integrated Security=True"))
         {
 
-            var query = " select * from post where post.page_id=2 ";
+            var query = "select top 12 * from post where page_id=2 order by post_id DESC";
             SqlCommand com = new SqlCommand(query, con);
             con.Open();
             com.ExecuteNonQuery();
@@ -67,7 +67,7 @@ public partial class politics : System.Web.UI.Page
 
         using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-3N40DTS\\SQLEXPRESS;Initial Catalog=sareAam;Integrated Security=True"))
         {
-            var query = " select * from post  where post.page_id=2";
+            var query = "select top 4 * from post where page_id=3 order by post_id DESC";
             SqlCommand com = new SqlCommand(query, con);
             con.Open();
             com.ExecuteNonQuery();
@@ -97,7 +97,7 @@ public partial class politics : System.Web.UI.Page
             {
 
               id = Convert.ToInt32(Request.QueryString["id"].ToString());
-              var query = " select * from post  where post_id='"+id+"'";
+              var query = " select top 10 * from post  where post_id='"+id+"'";
              SqlCommand com = new SqlCommand(query, con);
             con.Open();
             com.ExecuteNonQuery();
