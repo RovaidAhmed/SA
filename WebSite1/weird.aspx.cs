@@ -9,23 +9,30 @@ using System.Data.SqlClient;
 
 public partial class weird : System.Web.UI.Page
 {
-    int did;
+    int id;
     DataClassesDataContext dv = new DataClassesDataContext();
     protected void Page_Load(object sender, EventArgs e)
     {
         get_data_from_database();       //yahan sirf wahe data show hoga jo uspage ka ha
         sidebar_latest_update();         //side bar updates
 
+        if (Request.QueryString["id"] == null)
+        {
 
-        discription_div();
+        }
+        else
+        {
+            discription();
+        }
     }
+
 
     void get_data_from_database()
     {
 
         using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-3N40DTS\\SQLEXPRESS;Initial Catalog=sareAam;Integrated Security=True"))
         {
-            var query = " select * from post where post.page_id=4 ";
+            var query = "select top 12 * from post where page_id=4 order by post_id DESC";
             SqlCommand com = new SqlCommand(query, con);
             con.Open();
             com.ExecuteNonQuery();
@@ -45,7 +52,7 @@ public partial class weird : System.Web.UI.Page
 
         using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-3N40DTS\\SQLEXPRESS;Initial Catalog=sareAam;Integrated Security=True"))
         {
-            var query = " select * from post  where post.page_id=4";
+            var query = "select top 4 * from post where page_id=4 order by post_id DESC";
             SqlCommand com = new SqlCommand(query, con);
             con.Open();
             com.ExecuteNonQuery();
@@ -61,18 +68,34 @@ public partial class weird : System.Web.UI.Page
     }
 
 
-
-    void discription_div()
+    void discription()
     {
-        if (IsPostBack)
+        using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-3N40DTS\\SQLEXPRESS;Initial Catalog=sareAam;Integrated Security=True"))
         {
-            did = Convert.ToInt32(Request.QueryString["id"].ToString());
-        }
-        var cust = from p in dv.posts
-                   where p.post_id == did
-                   select p;
+            if (Request.QueryString["id"] == null)
+            {
 
+            }
+            else
+            {
+
+                id = Convert.ToInt32(Request.QueryString["id"].ToString());
+                var query = " select top 12 * from post  where post_id='" + id + "'";
+                SqlCommand com = new SqlCommand(query, con);
+                con.Open();
+                com.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(com);
+                da.Fill(dt);
+                Repeater1.DataSource = dt;
+                Repeater1.DataBind();
+                con.Close();
+            }
+        }
     }
+
+
+
 
 
 

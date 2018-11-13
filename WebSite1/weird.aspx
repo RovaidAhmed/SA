@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
       <!-- Favicon -->
-    <link rel="icon" href="img/core-img/favicon.ico"/>
+    <link rel="icon" href="img/bg-img/sa.ico"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -30,7 +30,7 @@
     <!-- Core Stylesheet -->
     <link rel="stylesheet" href="style.css"/>
 </head>
-<body>
+
    <body>
       <form id="form1" runat="server">
      <!-- ##### Header Area Start ##### -->
@@ -143,21 +143,25 @@
  
 
                        <!--discription div-->
+                         <asp:Repeater ID="Repeater1" runat="server">
+                            <ItemTemplate>
 
+                        
                         <!-- Single Featured Post -->                            
-                        <div class="col-12 col-lg-12" runat="server">
+                        <div class="col-12 col-lg-12" id="discriptiondiv">
                             <div class="single-blog-post featured-post">
                                 <a href="#" class="post-title">
-                                       <div style="margin-left:40%;"><h1>ھاشا ڈیم قومی معاملہ ہے</h1></div>
+                                       <div style="margin-left:25%"><h1><%# Eval("title") %></h1></div>
+                                 
                                     </a>
                                 <div class="post-thumb">
-                                    <a href="politics.aspx"><img src="img/bg-img/25.jpg" alt=""></a>
+                                    <a href="weird.aspx"><img src="./files/<%# Eval("file_name") %>" alt=""></a>
                                 </div>
                                 <div class="post-data">
                                  <%-- <a href="politics.aspx" class="post-catagory" style="margin-left:85%;">سیاست سے</a>--%>
                                     
                                     <div class="post-meta">
-                                        <p class="post-author" style="text-align:right;"> <a href="#">حمزہ شہباز شریف</a></p>
+                                        <p class="post-author" style="text-align:right;"> <a href="#"> <%# Eval("Author") %></a></p>
                                         <p class="post-excerp">                                    
 
                                                 
@@ -173,7 +177,10 @@
                                 </div>
                             </div>
                         </div>
-
+ 
+                                
+                            </ItemTemplate>
+                        </asp:Repeater>
                              
                          <!--discription div-->
 

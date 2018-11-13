@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
       <!-- Favicon -->
-    <link rel="icon" href="img/core-img/favicon.ico"/>
+    <link rel="icon" href="img/bg-img/sa.ico"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -161,10 +161,13 @@
                                     
                                     <div class="post-meta">
                                         <p class="post-author" style="text-align:right;"> <a href="#"> <%# Eval("Author") %></a></p>
-                                        <p class="post-excerp">                                    
-
+                                        <p class="post-excerp" >                                    
+                                           
                                                 
-                                               hjgggnyjggbyggggbgfcv vvvbfcfcfccfcfcc
+                                                 <%# Eval ("Breif")%>
+                                          
+                                                
+                                            
                             
                                         </p>
                                         <!-- Post Like & Post Comment -->
@@ -200,7 +203,7 @@
                             <a href="Amazing.aspx"><img src="./files/<%# Eval("file_name") %>" alt=""></a>
                         </div>
                         <div class="post-data">
-                            <a href="politics.aspx" class="post-catagory">.</a>
+                            <a href="politics.aspx" class="post-catagory"></a>
                             <div class="post-meta">
                                 <a href="Amazing.aspx" class="post-title">
                                     <h6 style="margin-right:6px;"><%# Eval("title") %></h6>

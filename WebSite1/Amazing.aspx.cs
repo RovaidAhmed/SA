@@ -84,7 +84,7 @@ public partial class Amazing : System.Web.UI.Page
             {
 
                 id = Convert.ToInt32(Request.QueryString["id"].ToString());
-                var query = " select top 10 * from post  where post_id='" + id + "'";
+                var query = " select top 12 * from post  where post_id='" + id + "'";
                 SqlCommand com = new SqlCommand(query, con);
                 con.Open();
                 com.ExecuteNonQuery();
