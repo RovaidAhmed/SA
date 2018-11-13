@@ -308,7 +308,7 @@
     </div>
     <!-- ##### Popular News Area End ##### -->
 
-    <!-- ##### Video Post Area Start ##### -->
+  <%--  <!-- ##### Video Post Area Start ##### -->
     <div class="video-post-area bg-img bg-overlay" style="background-image: url(img/bg-img/bg1.jpg);">
         <div class="container">
             <div class="row justify-content-center">
@@ -348,7 +348,7 @@
             </div>
         </div>
     </div>
-    <!-- ##### Video Post Area End ##### -->
+    <!-- ##### Video Post Area End ##### -->--%>
 
     <!-- ##### Editorial Post Area Start ##### -->
     <div class="editors-pick-post-area section-padding-80-50">
@@ -357,112 +357,37 @@
                 <!-- Editors Pick -->
                 <div class="col-12 col-md-7 col-lg-9">
                     <div class="section-heading">
-                        <h6>Editor’s Pick</h6>
+                        <h6>معیشت</h6>
                     </div>
 
                     <div class="row">
 
-                        <!-- Single Post -->
-                        <div class="col-12 col-lg-4">
-                            <div class="single-blog-post">
-                                <div class="post-thumb">
-                                    <a href="#"><img src="img/bg-img/1.jpg" alt=""></a>
-                                </div>
-                                <div class="post-data">
-                                    <a href="#" class="post-title">
-                                        <h6>Orci varius natoque penatibus et magnis dis parturient montes.</h6>
-                                    </a>
-                                    <div class="post-meta">
-                                        <div class="post-date"><a href="#">February 11, 2018</a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+               
+        
 
-                        <!-- Single Post -->
-                        <div class="col-12 col-lg-4">
-                            <div class="single-blog-post">
-                                <div class="post-thumb">
-                                    <a href="#"><img src="img/bg-img/2.jpg" alt=""></a>
-                                </div>
-                                <div class="post-data">
-                                    <a href="#" class="post-title">
-                                        <h6>Orci varius natoque penatibus et magnis dis parturient montes.</h6>
-                                    </a>
-                                    <div class="post-meta">
-                                        <div class="post-date"><a href="#">February 11, 2018</a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <asp:Repeater ID="Repeatermahishat" runat="server">
+                            <ItemTemplate>
 
+                        
                         <!-- Single Post -->
                         <div class="col-12 col-lg-4">
                             <div class="single-blog-post">
                                 <div class="post-thumb">
-                                    <a href="#"><img src="img/bg-img/3.jpg" alt=""></a>
+                                    <a href="levlihoods.aspx"><img src="./files/<%# Eval("file_name") %>"alt=""></a>
                                 </div>
                                 <div class="post-data">
-                                    <a href="#" class="post-title">
-                                        <h6>Orci varius natoque penatibus et magnis dis parturient montes.</h6>
+                                    <a href="levlihoods.aspx" class="post-title">
+                                        <h4><%# Eval("title") %></h4>
                                     </a>
                                     <div class="post-meta">
-                                        <div class="post-date"><a href="#">February 11, 2018</a></div>
+                                       
                                     </div>
                                 </div>
                             </div>
                         </div>
+                       </ItemTemplate>
+                        </asp:Repeater>
 
-                        <!-- Single Post -->
-                        <div class="col-12 col-lg-4">
-                            <div class="single-blog-post">
-                                <div class="post-thumb">
-                                    <a href="#"><img src="img/bg-img/4.jpg" alt=""></a>
-                                </div>
-                                <div class="post-data">
-                                    <a href="#" class="post-title">
-                                        <h6>Orci varius natoque penatibus et magnis dis parturient montes.</h6>
-                                    </a>
-                                    <div class="post-meta">
-                                        <div class="post-date"><a href="#">February 11, 2018</a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Single Post -->
-                        <div class="col-12 col-lg-4">
-                            <div class="single-blog-post">
-                                <div class="post-thumb">
-                                    <a href="#"><img src="img/bg-img/5.jpg" alt=""></a>
-                                </div>
-                                <div class="post-data">
-                                    <a href="#" class="post-title">
-                                        <h6>Orci varius natoque penatibus et magnis dis parturient montes.</h6>
-                                    </a>
-                                    <div class="post-meta">
-                                        <div class="post-date"><a href="#">February 11, 2018</a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Single Post -->
-                        <div class="col-12 col-lg-4">
-                            <div class="single-blog-post">
-                                <div class="post-thumb">
-                                    <a href="#"><img src="img/bg-img/6.jpg" alt=""></a>
-                                </div>
-                                <div class="post-data">
-                                    <a href="#" class="post-title">
-                                        <h6>Orci varius natoque penatibus et magnis dis parturient montes.</h6>
-                                    </a>
-                                    <div class="post-meta">
-                                        <div class="post-date"><a href="#">February 11, 2018</a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -472,79 +397,28 @@
                         <h6>دنیا</h6>
                     </div>
 
+                    <asp:Repeater ID="Repeaterworld" runat="server">
+                        <ItemTemplate>
+
+                    
+
                     <!-- Single Post -->
                     <div class="single-blog-post style-2">
                         <div class="post-thumb">
-                            <a href="#"><img src="img/bg-img/44.jpg" alt=""></a>
+                            <a href="world.aspx"><img src="./files/<%# Eval("file_name") %>"alt=""></a>
                         </div>
                         <div class="post-data">
                             <a href="world.aspx" class="post-title">
-                                <h6>یہودی عبادت گاہ پر حملہ</h6>
-                            </a>
-                            <div class="post-meta">
-<%--                                <div class="post-date"><a href="#">February 11, 2018</a></div>--%>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Single Post -->
-                    <div class="single-blog-post style-2">
-                        <div class="post-thumb">
-                            <a href="#"><img src="img/bg-img/45.jpg" alt=""></a>
-                        </div>
-                        <div class="post-data">
-                            <a href="world.aspx" class="post-title">
-                                <h6>ایک سزا ہے اور ایک قیمت ہے جو ادا کرنی ہو گی</h6>
-                            </a>
-                            <div class="post-meta">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Single Post -->
-                    <div class="single-blog-post style-2">
-                        <div class="post-thumb">
-                            <a href="#"><img src="img/bg-img/46.jpg" alt=""></a>
-                        </div>
-                        <div class="post-data">
-                            <a href="world.aspx" class="post-title">
-                                <h6>ہم روس کوایٹمی معاہدے کی خلاف ورزی نہیں کرنے دیں گے</h6>
-                            </a>
-                            <div class="post-meta">
-                               <%-- <div class="post-date"><a href="#">February 11, 2018</a></div>--%>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Single Post -->
-                    <div class="single-blog-post style-2">
-                        <div class="post-thumb">
-                            <a href="#"><img src="img/bg-img/47.jpg" alt=""></a>
-                        </div>
-                        <div class="post-data">
-                            <a href="#" class="post-title">
-                                <h6>پولیس چیف کی ہلاکت کے بعد پولنگ ملتوی</h6>
-                            </a>
-                            <div class="post-meta">
-                           
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Single Post -->
-                    <div class="single-blog-post style-2">
-                        <div class="post-thumb">
-                            <a href="#"><img src="img/bg-img/48.jpg" alt=""></a>
-                        </div>
-                        <div class="post-data">
-                            <a href="#" class="post-title">
-                                <h6>فٹبال ایسوسی ایشن اور شاہد خان کے درمیان 900 ملین پاؤنڈ پر معاملات طے پاگئے۔</h6>
+                               <h6><%#  Eval("title") %></h6>
                             </a>
                             <div class="post-meta">
                               
                             </div>
                         </div>
                     </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
+               
 
                 </div>
             </div>
@@ -604,8 +478,8 @@
                             <!-- List -->
                             <ul class="list" >
                               
-                         <img src="img/bg-img/fb.png" alt=" " id="social-links"/>   
-                         <img src="img/bg-img/insta.png" alt=" " id="social-links"/> 
+                      <a href="https://www.facebook.com/SareAam/"></accessdatasource>   <img src="img/bg-img/fb.png" alt=" " id="social-links"/> </a>  
+                       <a href="https://www.instagram.com/SAtimez/"></accessdatasource><img src="img/bg-img/insta.png" alt=" " id="social-links"/> </a>
                           <img src="img/bg-img/twitter.png" alt=" " id="social-links"/> 
 
 

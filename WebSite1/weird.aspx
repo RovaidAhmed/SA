@@ -165,7 +165,7 @@
                                         <p class="post-excerp">                                    
 
                                                 
-                                               hjgggnyjggbyggggbgfcv vvvbfcfcfccfcfcc
+                                              <%# Eval("Breif") %>
                             
                                         </p>
                                         <!-- Post Like & Post Comment -->
@@ -370,9 +370,10 @@
                             <!-- List -->
                             <ul class="list" >
                               
-                         <img src="img/bg-img/fb.png" alt=" " id="social-links"/>   
-                         <img src="img/bg-img/insta.png" alt=" " id="social-links"/> 
+                      <a href="https://www.facebook.com/SareAam/"><img src="img/bg-img/fb.png" alt=" " id="social-links"/> </a>  
+                       <a href="https://www.instagram.com/SAtimez/"><img src="img/bg-img/insta.png" alt=" " id="social-links"/> </a>
                           <img src="img/bg-img/twitter.png" alt=" " id="social-links"/> 
+
 
 
 

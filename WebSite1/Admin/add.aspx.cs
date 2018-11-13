@@ -63,7 +63,7 @@ public partial class Admin_add : System.Web.UI.Page
             file_name = pathstring,
             page_id = Convert.ToInt32(Txtpageid.Text),
             ad_id = Convert.ToInt32(Txtadminid.Text),
-            Breif = editor1.InnerHtml.ToString()
+            Breif = editor1.InnerText.ToString()
         };
         dv.posts.InsertOnSubmit(p);
         dv.SubmitChanges();

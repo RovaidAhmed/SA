@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
 
 public partial class health : System.Web.UI.Page
 {
@@ -33,8 +34,9 @@ public partial class health : System.Web.UI.Page
     void get_data_from_database()
     {
 
-        using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-3N40DTS\\SQLEXPRESS;Initial Catalog=sareAam;Integrated Security=True"))
-        {
+        string cs = ConfigurationManager.ConnectionStrings["sareAamConnectionString"].ConnectionString;
+        using (SqlConnection con = new SqlConnection(cs))
+        { 
             var query = "select top 12 * from post where page_id=9 order by post_id DESC";
             SqlCommand com = new SqlCommand(query, con);
             con.Open();
@@ -53,8 +55,9 @@ public partial class health : System.Web.UI.Page
     void sidebar_latest_update()
     {
 
-        using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-3N40DTS\\SQLEXPRESS;Initial Catalog=sareAam;Integrated Security=True"))
-        {
+        string cs = ConfigurationManager.ConnectionStrings["sareAamConnectionString"].ConnectionString;
+        using (SqlConnection con = new SqlConnection(cs))
+        { 
             var query = "select top 4 * from post where page_id=2 order by post_id DESC";
             SqlCommand com = new SqlCommand(query, con);
             con.Open();
@@ -73,8 +76,9 @@ public partial class health : System.Web.UI.Page
 
     void discription()
     {
-        using (SqlConnection con = new SqlConnection("Data Source=DESKTOP-3N40DTS\\SQLEXPRESS;Initial Catalog=sareAam;Integrated Security=True"))
-        {
+        string cs = ConfigurationManager.ConnectionStrings["sareAamConnectionString"].ConnectionString;
+        using (SqlConnection con = new SqlConnection(cs))
+        { 
             if (Request.QueryString["id"] == null)
             {
 

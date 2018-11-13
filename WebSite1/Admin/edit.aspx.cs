@@ -33,7 +33,7 @@ public partial class WebSite1_Admin_Default : System.Web.UI.Page
             {
                 Txtupdatetitle.Text = items.Title;
                 Txtdisclaimer.Text = items.disclaimer;
-                editor1.InnerHtml = items.Breif;
+                editor1.InnerText = items.Breif;
 
 
 
@@ -68,7 +68,7 @@ public partial class WebSite1_Admin_Default : System.Web.UI.Page
         {
             items.Title = Txtupdatetitle.Text;
             items.disclaimer = Txtdisclaimer.Text;
-            items.Breif = editor1.InnerHtml.ToString();
+            items.Breif = editor1.InnerText.ToString();
         }
         try
         {
