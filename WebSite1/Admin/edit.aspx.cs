@@ -73,6 +73,7 @@ public partial class WebSite1_Admin_Default : System.Web.UI.Page
         try
         {
             dv.SubmitChanges();
+
         }
         catch(Exception ex)
         {
@@ -81,6 +82,7 @@ public partial class WebSite1_Admin_Default : System.Web.UI.Page
         Txtdisclaimer.Text = " ";
         Txtupdatetitle.Text = " ";
         Txtpostid.Text = " ";
+        editor1.InnerText = " ";
               
 
     }

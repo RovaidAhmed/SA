@@ -172,4 +172,24 @@ public partial class Home : System.Web.UI.Page
 
 
 
+
+
+
+    protected void Btn_search_Click(object sender, EventArgs e)
+    {
+        string cs = ConfigurationManager.ConnectionStrings["sareAamConnectionString"].ConnectionString;
+        using (SqlConnection con = new SqlConnection(cs))
+        {
+            var query = "select * from post where Author like='"+Txtsearch.Text+"' ";
+            SqlCommand com = new SqlCommand(query, con);
+            con.Open();
+            com.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(com);
+            da.Fill(dt);
+            con.Close();
+
+
+        }
+    }
 }

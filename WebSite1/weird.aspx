@@ -372,7 +372,7 @@
                               
                       <a href="https://www.facebook.com/SareAam/"><img src="img/bg-img/fb.png" alt=" " id="social-links"/> </a>  
                        <a href="https://www.instagram.com/SAtimez/"><img src="img/bg-img/insta.png" alt=" " id="social-links"/> </a>
-                          <img src="img/bg-img/twitter.png" alt=" " id="social-links"/> 
+                            <a href="https://twitter.com/satimespak?s=08/" ><img src="img/bg-img/twitter.png" alt=" " id="social-links"/> </a> 
 
 
 

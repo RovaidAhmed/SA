@@ -69,7 +69,7 @@ public partial class Admin_add : System.Web.UI.Page
         dv.SubmitChanges();
         FileUpload1.SaveAs(MapPath(pathstring));
         Txtdisclaimer.Text = " "; Txttitle.Text = " "; Txtlink.Text = " "; Txtauthor.Text = " ";
-        
+        editor1.InnerText = " ";
        
     }
 

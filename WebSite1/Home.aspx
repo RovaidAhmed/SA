@@ -53,14 +53,23 @@
                                     <a href="#">Register</a>
                                 </div>
                                      -->
-                                <!-- Search Form 
+                                 <!--search form-->
                                 <div class="search-form">
-                                    <form action="#" method="post">
-                                        <input type="search" name="search" class="form-control" placeholder="Search">
-                                        <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-                                    </form>
+                                    
+                                    <asp:TextBox ID="Txtsearch" style="padding-right:60px;margin-bottom:2px;" runat="server" CssClass="form-control" > </asp:TextBox>
+                                 
+                                                                           
+                                  <asp:Button runat="server" Text="تلاش کریں" style="width:50%;" ID="Btn_search" OnClick="Btn_search_Click"></asp:Button>
+                                          
+                                       
+
+                                   
+                                     
+   
+                                        
+                                   
                                 </div>
-                                    -->
+                                    
                             </div>
                         </div>
                     </div>
@@ -480,7 +489,7 @@
                               
                       <a href="https://www.facebook.com/SareAam/"></accessdatasource>   <img src="img/bg-img/fb.png" alt=" " id="social-links"/> </a>  
                        <a href="https://www.instagram.com/SAtimez/"></accessdatasource><img src="img/bg-img/insta.png" alt=" " id="social-links"/> </a>
-                          <img src="img/bg-img/twitter.png" alt=" " id="social-links"/> 
+                           <a href="https://twitter.com/satimespak?s=08/" ><img src="img/bg-img/twitter.png" alt=" " id="social-links"/> </a> 
 
 
 

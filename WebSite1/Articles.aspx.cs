@@ -12,6 +12,7 @@ public partial class Articles : System.Web.UI.Page
 {
     DataClassesDataContext dv = new DataClassesDataContext();
     int id;
+    int num = 0;
     protected void Page_Load(object sender, EventArgs e)
     {
         get_data_from_database();       //yahan sirf wahe data show hoga jo uspage ka ha
@@ -26,8 +27,14 @@ public partial class Articles : System.Web.UI.Page
             discription();
         }
 
+      
+
     }
 
+
+
+
+    
 
 
     void get_data_from_database()
@@ -36,7 +43,7 @@ public partial class Articles : System.Web.UI.Page
         string cs = ConfigurationManager.ConnectionStrings["sareAamConnectionString"].ConnectionString;
         using (SqlConnection con = new SqlConnection(cs))
         { 
-            var query = "select top 30 * from post  order by post_id DESC";
+            var query = "select top 20 * from post  order by post_id DESC";
             SqlCommand com = new SqlCommand(query, con);
             con.Open();
             com.ExecuteNonQuery();
@@ -45,7 +52,7 @@ public partial class Articles : System.Web.UI.Page
             da.Fill(dt);
             RepeaterArticles.DataSource = dt;
             RepeaterArticles.DataBind();
-            con.Close();
+             con.Close();
         }
 
 

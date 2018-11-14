@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="add.aspx.cs" Inherits="Admin_add" ValidateRequest="false" %>
+﻿<%@ Page Language="C#"   AutoEventWireup="true" CodeFile="add.aspx.cs" Inherits="Admin_add" ValidateRequest="false" %>
 
 <!DOCTYPE html>
 
