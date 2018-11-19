@@ -13,12 +13,14 @@ public partial class politics : System.Web.UI.Page
    
     DataClassesDataContext dv = new DataClassesDataContext();
     int id;
+    int num = 0;
+    string cs = ConfigurationManager.ConnectionStrings["sareAamConnectionString"].ConnectionString;
 
     protected void Page_Load(object sender, EventArgs e)
     {
 
 
-        get_data_from_database();
+        //get_data_from_database();
 
         sidebar_latest_update();
 
@@ -30,38 +32,79 @@ public partial class politics : System.Web.UI.Page
         {
             discription();
         }
-       
-       
 
-         
-
-
-   
-     
-
-
-    }
-
-    void get_data_from_database()
-    {
-        string cs = ConfigurationManager.ConnectionStrings["sareAamConnectionString"].ConnectionString;
-        using (SqlConnection con = new SqlConnection(cs))
-        { 
-
-            var query = "select top 12 * from post where page_id=2 order by post_id DESC";
-            SqlCommand com = new SqlCommand(query, con);
-            con.Open();
-            com.ExecuteNonQuery();
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(com);
-            da.Fill(dt);
-            Repeaterpolitics.DataSource = dt;
-            Repeaterpolitics.DataBind();
-            con.Close();
+        if (!IsPostBack)
+        {
+            num = 10;
+            ViewState["num"] = num;
+            Bind_data_with_repeater_loadmore(num);
         }
 
 
     }
+
+    void Bind_data_with_repeater_loadmore(int NoOfRows)
+    {
+        int rowcount = get_total_rowsfromdatabase();
+        if (NoOfRows > rowcount)
+        {
+            Button1.Visible = false;
+        }
+
+        using (SqlConnection con = new SqlConnection(cs))
+        {
+            var query = "select top (@val) * from post  where page_id=2 order by post_id DESC";
+            SqlDataAdapter sda = new SqlDataAdapter(query, con);
+            sda.SelectCommand.Parameters.AddWithValue("@val", NoOfRows);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            if (dt.Rows.Count > 0)
+            {
+                Repeaterpolitics.DataSource = dt;
+                Repeaterpolitics.DataBind();
+            }
+            else
+            {
+                Repeaterpolitics.DataSource = null;
+                Repeaterpolitics.DataBind();
+            }
+
+        }
+    }
+
+    int get_total_rowsfromdatabase()
+    {
+        using (SqlConnection con = new SqlConnection(cs))
+        {
+            var query = "select  count(*)  from post where page_id=2";
+            SqlCommand cmd = new SqlCommand(query, con);
+            con.Open();
+            int rowscount = Convert.ToInt32(cmd.ExecuteScalar());
+            con.Close();
+            return rowscount;
+        }
+    }
+
+    //void get_data_from_database()
+    //{
+    //    string cs = ConfigurationManager.ConnectionStrings["sareAamConnectionString"].ConnectionString;
+    //    using (SqlConnection con = new SqlConnection(cs))
+    //    { 
+
+    //        var query = "select top 12 * from post where page_id=2 order by post_id DESC";
+    //        SqlCommand com = new SqlCommand(query, con);
+    //        con.Open();
+    //        com.ExecuteNonQuery();
+    //        DataTable dt = new DataTable();
+    //        SqlDataAdapter da = new SqlDataAdapter(com);
+    //        da.Fill(dt);
+    //        Repeaterpolitics.DataSource = dt;
+    //        Repeaterpolitics.DataBind();
+    //        con.Close();
+    //    }
+
+
+    //}
 
     void sidebar_latest_update()
     {
@@ -116,5 +159,16 @@ public partial class politics : System.Web.UI.Page
 
 
 
-   
+
+
+
+
+
+    protected void Button1_Click1(object sender, EventArgs e)
+    {
+
+        int numvalues = Convert.ToInt32(ViewState["num"]) + 10;
+        Bind_data_with_repeater_loadmore(numvalues);
+        ViewState["num"] = numvalues;
+    }
 }

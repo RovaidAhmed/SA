@@ -54,7 +54,7 @@
                                 </div>
                                      -->
                                  <!--search form-->
-                                <div class="search-form">
+                              <%--  <div class="search-form">
                                     
                                     <asp:TextBox ID="Txtsearch" style="padding-right:60px;margin-bottom:2px;" runat="server" CssClass="form-control" > </asp:TextBox>
                                  
@@ -68,7 +68,7 @@
    
                                         
                                    
-                                </div>
+                                </div>--%>
                                     
                             </div>
                         </div>
@@ -201,6 +201,7 @@
                                         </a>
                                        
                                     </div>
+                                     <div><%# Eval("Breif") %></div>
                                 </div>
                             </div>
                                      </ItemTemplate>

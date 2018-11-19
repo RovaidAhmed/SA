@@ -235,7 +235,12 @@
     <div class="popular-news-area section-padding-80-50">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-lg-8">                   
+                <div class="col-12 col-lg-8">       
+                          
+                     <asp:scriptmanager runat="server"></asp:scriptmanager>
+                    <asp:updatepanel runat="server">
+                        <contentTemplate>
+                                 
                     <div class="row">                                       <!-- use repeater here-->
                         <!-- Single Post -->
 
@@ -262,11 +267,12 @@
                          </ItemTemplate>
                         </asp:Repeater>
                         
-                     
-                        
-                      
+                       
+                        <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Load_more"  style="margin-right:40%;padding:12px;margin-bottom:10px;" CssClass="btn btn-primary" />
                        
                     </div>
+                                      </contentTemplate>
+                                          </asp:updatepanel>
                 </div>
 
                 <div class="col-12 col-lg-4">

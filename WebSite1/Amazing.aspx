@@ -29,6 +29,7 @@
 
     <!-- Core Stylesheet -->
     <link rel="stylesheet" href="style.css"/>
+
 </head>
 <body>
       <form id="form1" runat="server">
@@ -48,6 +49,8 @@
 
                             <!-- Login Search Area -->
                             <div class="login-search-area d-flex align-items-center">
+                                <asp:TextBox ID="TextBox1" runat="server" ></asp:TextBox><br />
+                                <asp:Button ID="Button2" runat="server" Text="find" OnClick="Button2_Click" />
                                 
                             </div>
                         </div>
@@ -139,7 +142,6 @@
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-8">
                     <div class="row">
- 
 
                        <!--discription div-->
                         <asp:Repeater ID="Repeater1" runat="server">
@@ -154,7 +156,9 @@
                                  
                                     </a>
                                 <div class="post-thumb">
-                                    <a href="Amazing.aspx"><img src="./files/<%# Eval("file_name") %>" alt=""></a>
+                                    <a href="Amazing.aspx"><img src="./files/<%# Eval("file_name") %>" alt="">
+
+                                    </a>
                                 </div>
                                 <div class="post-data">
                                  <%-- <a href="politics.aspx" class="post-catagory" style="margin-left:85%;">سیاست سے</a>--%>
@@ -233,8 +237,13 @@
          
     <div class="popular-news-area section-padding-80-50">
         <div class="container">
+
             <div class="row">
-                <div class="col-12 col-lg-8">                   
+                <div class="col-12 col-lg-8"> 
+                      <asp:scriptmanager runat="server"></asp:scriptmanager>
+                    <asp:updatepanel runat="server">
+                        <contentTemplate>
+                                              
                     <div class="row">                                       <!-- use repeater here-->
                         <!-- Single Post -->
 
@@ -262,10 +271,13 @@
                         </asp:Repeater>
                         
                      
+                        <asp:Button ID="Button1" runat="server" Text="Load_more" OnClick="Button1_Click"   CssClass="btn btn-primary" style="margin-right:40%;padding:12px;margin-bottom:10px;"/>
                         
                       
                        
                     </div>
+                                         </contentTemplate>
+                                          </asp:updatepanel>
                 </div>
 
                 <div class="col-12 col-lg-4">
@@ -423,6 +435,7 @@
         <script async custom-element="amp-auto-ads"
         src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
 </script>
+
     </form>
 </body>
 </html>

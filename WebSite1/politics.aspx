@@ -142,7 +142,7 @@
  
 
                        <!--discription div-->
-                        <asp:Repeater ID="Repeater1" runat="server">
+                        <asp:Repeater ID="Repeater1" runat="server" >
                             <ItemTemplate>
 
                         
@@ -195,10 +195,7 @@
                       <asp:Repeater ID="Repeatersidebar" runat="server">
                             <ItemTemplate>
                     <div class="single-blog-post small-featured-post d-flex">
-                      
-                                
-                        
-
+                              
                         <div class="post-thumb">
                             <a href="Amazing.aspx"><img src="./files/<%# Eval("file_name") %>" alt=""></a>
                         </div>
@@ -216,13 +213,7 @@
                            </ItemTemplate>
                         </asp:Repeater>
 
-
-
-
-                    
-
-                  
-                 
+               
 
                   
                     
@@ -237,7 +228,12 @@
     <div class="popular-news-area section-padding-80-50">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-lg-8">                   
+                <div class="col-12 col-lg-8">  
+                       
+                     <asp:scriptmanager runat="server"></asp:scriptmanager>
+                    <asp:updatepanel runat="server">
+                        <contentTemplate>
+              
                     <div class="row">                                       <!-- use repeater here-->
                         <!-- Single Post -->
 
@@ -263,12 +259,16 @@
 
                          </ItemTemplate>
                         </asp:Repeater>
+                                                
+                                                                              
+                        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click1" Text="load_more"  CssClass="btn btn-primary" style="margin-right:40%;padding:12px;margin-bottom:10px;"/>
                         
                      
-                        
-                      
+                             
                        
                     </div>
+                                          </contentTemplate>
+                                          </asp:updatepanel>
                 </div>
 
                 <div class="col-12 col-lg-4">

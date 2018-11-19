@@ -180,7 +180,8 @@
                                 
                             </ItemTemplate>
                         </asp:Repeater>
-                             
+
+                       
                          <!--discription div-->
 
                     </div>
@@ -232,9 +233,17 @@
     <div class="popular-news-area section-padding-80-50">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-lg-8">                   
-                    <div class="row">                                       <!-- use repeater here-->
+                <div class="col-12 col-lg-8"> 
+
+                    <asp:scriptmanager runat="server"></asp:scriptmanager>
+                    <asp:updatepanel runat="server">
+                        <contentTemplate>
+
+                     
+                                      
+                    <div class="row">                                   <!-- use repeater here-->
                         <!-- Single Post -->
+
 
                     <asp:Repeater ID="RepeaterArticles" runat="server">
                        <ItemTemplate> 
@@ -260,10 +269,13 @@
                         </asp:Repeater>
                         
                      
-                        
-                      
+                         <asp:button runat="server" text="Load more"  cssclass="btn btn-primary" style="margin-right:40%;padding:12px;margin-bottom:10px;" ID="Btn_loadmore" OnClick="Unnamed1_Click"/>
+                             
                        
                     </div>
+                                        </contentTemplate>
+                                          </asp:updatepanel>
+
                 </div>
 
                 <div class="col-12 col-lg-4">
